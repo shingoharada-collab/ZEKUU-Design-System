@@ -1,0 +1,292 @@
+/* Atlas Design System — design-tokens.css
+   index.html から抽出した CSS 変数のみのファイル。
+   CLAUDE-UI-DESIGN.md の規約に従い、各プロダクトでこれを唯一のトークン源として読み込む。
+   バリアント切替: <body data-variant="universal|construction|realestate">
+   テーマ切替:    <body data-theme="light|dark">
+*/
+
+/* =========================================================
+   Atlas Design System — Tokens & Base
+   ベース: Apple HIG (色・タイポ・余白・モーションの作法)
+   バリアント: data-variant="universal | construction | realestate"
+   テーマ: data-theme="light | dark"
+   ========================================================= */
+
+:root {
+  /* ---- Foundation: Neutral scale (Apple System Gray風) ---- */
+  --neutral-0:  #ffffff;
+  --neutral-50: #f7f7f8;
+  --neutral-100:#f2f2f7;
+  --neutral-150:#ebebf0;
+  --neutral-200:#e5e5ea;
+  --neutral-300:#d1d1d6;
+  --neutral-400:#c7c7cc;
+  --neutral-500:#aeaeb2;
+  --neutral-600:#8e8e93;
+  --neutral-700:#636366;
+  --neutral-800:#3a3a3c;
+  --neutral-900:#1c1c1e;
+  --neutral-950:#0a0a0b;
+
+  /* ---- Foundation: Semantic system colors (iOS standard) ---- */
+  --system-blue:   #007aff;
+  --system-blue-2: #0a84ff;
+  --system-green:  #34c759;
+  --system-orange: #ff9500;
+  --system-red:    #ff3b30;
+  --system-yellow: #ffcc00;
+  --system-indigo: #5856d6;
+  --system-purple: #af52de;
+  --system-teal:   #30b0c7;
+  --system-pink:   #ff2d55;
+
+  /* ---- Typography stack (SF Pro → Hiragino → Noto) ---- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+               "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP",
+               "Yu Gothic UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+
+  --fs-caption2:  11px;
+  --fs-caption1:  12px;
+  --fs-footnote:  13px;
+  --fs-subhead:   15px;
+  --fs-callout:   16px;
+  --fs-body:      17px;
+  --fs-headline:  17px;
+  --fs-title3:    20px;
+  --fs-title2:    22px;
+  --fs-title1:    28px;
+  --fs-largetitle:34px;
+  --fs-display:   48px;
+
+  --lh-tight:  1.2;
+  --lh-normal: 1.45;
+  --lh-relaxed:1.6;
+
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+  --fw-bold:     700;
+
+  /* tracking (Apple is generally near 0, with negative on display) */
+  --tracking-display: -0.022em;
+  --tracking-title:   -0.012em;
+  --tracking-body:     0em;
+  --tracking-caption:  0.01em;
+
+  /* ---- Spacing (4pt base, 8pt grid) ---- */
+  --space-0:  0;
+  --space-1:  2px;
+  --space-2:  4px;
+  --space-3:  8px;
+  --space-4:  12px;
+  --space-5:  16px;
+  --space-6:  20px;
+  --space-7:  24px;
+  --space-8:  32px;
+  --space-9:  40px;
+  --space-10: 48px;
+  --space-11: 56px;
+  --space-12: 64px;
+  --space-14: 80px;
+  --space-16: 96px;
+
+  /* ---- Radius ---- */
+  --radius-xs:  4px;
+  --radius-sm:  6px;
+  --radius-md:  10px;
+  --radius-lg:  14px;
+  --radius-xl:  20px;
+  --radius-2xl: 28px;
+  --radius-full:9999px;
+
+  /* ---- Elevation (subtle, Apple-like) ---- */
+  --elev-0: none;
+  --elev-1: 0 1px 2px rgba(15,17,21,.04), 0 1px 1px rgba(15,17,21,.02);
+  --elev-2: 0 4px 12px rgba(15,17,21,.06), 0 1px 2px rgba(15,17,21,.04);
+  --elev-3: 0 8px 24px rgba(15,17,21,.08), 0 2px 4px rgba(15,17,21,.04);
+  --elev-4: 0 16px 40px rgba(15,17,21,.10), 0 4px 8px rgba(15,17,21,.04);
+  --elev-modal: 0 24px 64px rgba(15,17,21,.18), 0 8px 16px rgba(15,17,21,.08);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+  --ease-decel: cubic-bezier(0, 0, 0.2, 1);
+  --ease-accel: cubic-bezier(0.4, 0, 1, 1);
+  --dur-1: 100ms;
+  --dur-2: 150ms;
+  --dur-3: 200ms;
+  --dur-4: 300ms;
+  --dur-5: 400ms;
+  --dur-6: 600ms;
+
+  /* ---- Z-index ---- */
+  --z-base: 0;
+  --z-sticky: 100;
+  --z-drawer: 900;
+  --z-overlay: 1000;
+  --z-modal: 1100;
+  --z-toast: 1200;
+
+  /* ---- Breakpoints (参照用、CSS側はメディアクエリで使用) ----
+     mobile-sm:  〜375px  (iPhone SE 等)
+     mobile:     〜480px  (一般的なスマホ)
+     tablet-sm:  〜768px  (タブレット縦)
+     tablet:     〜1024px (タブレット横, iPad Pro縦)
+     desktop:    〜1280px
+     desktop-lg: 1280px〜
+  ---- */
+  --bp-mobile-sm: 375px;
+  --bp-mobile:    480px;
+  --bp-tablet-sm: 768px;
+  --bp-tablet:    1024px;
+  --bp-desktop:   1280px;
+
+  /* ---- Touch target (Apple HIG: 最小 44pt) ---- */
+  --touch-min: 44px;
+  --touch-construction: 48px;
+
+  /* ---- Container max widths ---- */
+  --container-mobile: 100%;
+  --container-tablet: 720px;
+  --container-desktop: 1180px;
+
+  /* ---- Safe area (iOS notch) ---- */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* ---- Semantic surface (light theme defaults; overridden per-theme) ---- */
+  --bg-canvas:        var(--neutral-50);
+  --bg-surface:       var(--neutral-0);
+  --bg-surface-2:     var(--neutral-100);
+  --bg-surface-3:     var(--neutral-150);
+  --bg-overlay:       rgba(255,255,255,0.72);
+  --border-subtle:    var(--neutral-200);
+  --border-default:   var(--neutral-300);
+  --border-strong:    var(--neutral-500);
+  --fg-default:       var(--neutral-900);
+  --fg-secondary:     var(--neutral-700);
+  --fg-tertiary:      var(--neutral-600);
+  --fg-disabled:      var(--neutral-500);
+  --fg-on-accent:     #ffffff;
+
+  /* ---- Default brand (Universal) ---- */
+  --brand-50:  #eef6ff;
+  --brand-100: #d9eaff;
+  --brand-200: #b3d4ff;
+  --brand-300: #80b6ff;
+  --brand-400: #4d97ff;
+  --brand-500: #1a78ff;
+  --brand-600: #0061e6;
+  --brand-700: #004cb3;
+  --brand-800: #003680;
+  --brand-900: #002257;
+  --accent:    var(--system-blue);
+  --accent-pressed: #0062cc;
+  --accent-soft: #e6f0ff;
+
+  /* ---- Status semantic ---- */
+  --status-success: var(--system-green);
+  --status-warning: var(--system-orange);
+  --status-danger:  var(--system-red);
+  --status-info:    var(--system-blue);
+
+  /* ---- Industry-specific (override per variant) ---- */
+  --hero-bg: linear-gradient(180deg, #f5f9ff 0%, #ffffff 100%);
+}
+
+/* =========================================================
+   Variant: Construction (建設)
+   屋外・現場での視認性を最優先。安全色をアクセントに。
+   ========================================================= */
+[data-variant="construction"] {
+  --accent: #ff6b00;        /* Safety Orange */
+  --accent-pressed: #d95800;
+  --accent-soft: #fff1e6;
+  --brand-50:  #fff5ec;
+  --brand-100: #ffe2c7;
+  --brand-200: #ffc28a;
+  --brand-300: #ff9d4d;
+  --brand-400: #ff8124;
+  --brand-500: #ff6b00;
+  --brand-600: #d95800;
+  --brand-700: #a64200;
+  --brand-800: #732d00;
+  --brand-900: #401900;
+
+  /* 屋外コントラスト強化 */
+  --bg-canvas:    #f4f5f7;
+  --border-subtle:#dcdfe4;
+  --border-default:#b9bec7;
+  --fg-secondary: #4a4d54;
+  --hero-bg: linear-gradient(180deg, #fff5ec 0%, #ffffff 60%);
+
+  /* 工事ステータス */
+  --status-active:   #1a78ff;  /* 進行中 */
+  --status-onhold:   #8e8e93;  /* 停止 */
+  --status-delayed:  var(--system-red);
+  --status-complete: var(--system-green);
+  --status-warning:  #ffcc00;  /* Hard hat yellow */
+}
+
+/* =========================================================
+   Variant: Real Estate (不動産)
+   暖色寄りのoff-white、深いインディゴと落ち着いたゴールド
+   ========================================================= */
+[data-variant="realestate"] {
+  --accent: #2f3a8a;        /* Deep Estate Indigo */
+  --accent-pressed: #232c6c;
+  --accent-soft: #eceefb;
+  --brand-50:  #f4f5fc;
+  --brand-100: #e0e3f6;
+  --brand-200: #b9bfe8;
+  --brand-300: #8b94d6;
+  --brand-400: #5e6abf;
+  --brand-500: #3f4cab;
+  --brand-600: #2f3a8a;
+  --brand-700: #232c6c;
+  --brand-800: #181f4c;
+  --brand-900: #0d1230;
+
+  /* 暖色off-white & プレミアム感 */
+  --bg-canvas:   #faf8f5;
+  --bg-surface:  #ffffff;
+  --bg-surface-2:#f3efe9;
+  --border-subtle: #ebe6dd;
+  --hero-bg: linear-gradient(180deg, #f4eee2 0%, #faf8f5 100%);
+
+  /* セカンダリアクセント: ウォームゴールド */
+  --accent-2: #c8a86b;
+  --accent-2-soft: #f6efde;
+}
+
+/* =========================================================
+   Theme: Dark
+   ========================================================= */
+[data-theme="dark"] {
+  --bg-canvas:    #000000;
+  --bg-surface:   #1c1c1e;
+  --bg-surface-2: #2c2c2e;
+  --bg-surface-3: #3a3a3c;
+  --bg-overlay:   rgba(28,28,30,.72);
+  --border-subtle:#2c2c2e;
+  --border-default:#3a3a3c;
+  --border-strong:#48484a;
+  --fg-default:   #ffffff;
+  --fg-secondary: #ebebf0;
+  --fg-tertiary:  #aeaeb2;
+  --fg-disabled:  #636366;
+  --hero-bg: linear-gradient(180deg, #11131a 0%, #000000 100%);
+}
+[data-theme="dark"][data-variant="construction"] {
+  --bg-canvas: #0e0f12;
+  --hero-bg: linear-gradient(180deg, #1a0f06 0%, #0e0f12 100%);
+}
+[data-theme="dark"][data-variant="realestate"] {
+  --bg-canvas: #0e0c0a;
+  --bg-surface: #1a1714;
+  --bg-surface-2: #221d18;
+  --hero-bg: linear-gradient(180deg, #14110d 0%, #0e0c0a 100%);
+}
